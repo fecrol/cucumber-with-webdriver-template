@@ -23,7 +23,7 @@ public class ExampleSteps {
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
         loginPage.open();
-        assertThat("Failed to open login page", loginPage.loginBtnIsVisible(), is(true));
+        assertThat("Failed to open login page", loginPage.loginBtn().isVisible(), is(true));
     }
 
     @When("I login")
@@ -33,6 +33,6 @@ public class ExampleSteps {
     }
     @Then("I should be on the home page")
     public void i_should_be_on_the_home_page() {
-        assertThat("Login was unsuccessful", homePage.shoppingCartIsClickable(), is(true));
+        assertThat("Login was unsuccessful", homePage.shoppingCart().isClickable(), is(true));
     }
 }

@@ -1,6 +1,7 @@
 package UI.POMs;
 
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.core.pages.WebElementState;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.support.FindBy;
@@ -18,20 +19,20 @@ public class LoginPage extends PageObject {
 
     @Step
     public void inputUsername(String username) {
-        loginBtn.waitUntilClickable();
-        typeInto(usernameField, username);
+        usernameField.waitUntilClickable();
+        usernameField.type(username);
     }
 
     @Step
     public void inputPassword(String password) {
-        loginBtn.waitUntilClickable();
-        typeInto(passwordField, password);
+        passwordField.waitUntilClickable();
+        passwordField.type(password);
     }
 
     @Step
     public void clickLoginBtn() {
         loginBtn.waitUntilClickable();
-        clickOn(loginBtn);
+        loginBtn.click();
     }
 
     @Step
@@ -42,8 +43,7 @@ public class LoginPage extends PageObject {
     }
 
     @Step
-    public boolean loginBtnIsVisible() {
-        loginBtn.waitUntilVisible();
-        return loginBtn.isVisible();
+    public WebElementState loginBtn() {
+        return loginBtn;
     }
 }
