@@ -8,9 +8,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -25,18 +22,6 @@ public class ExampleSteps {
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
-        String applicationDate = System.getProperty("applicationDate");
-        switch (applicationDate) {
-            case "current":
-                Date date = new Date();
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
-                String strDate = dateFormatter.format(date);
-                System.out.println(strDate);
-                break;
-            default:
-                System.out.println(applicationDate);
-                break;
-        }
         loginPage.open();
         assertThat("Failed to open login page", loginPage.loginBtn().isVisible(), is(true));
     }
